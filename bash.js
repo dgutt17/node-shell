@@ -1,12 +1,17 @@
 let cmd; 
-
+const pwdCommand = require('./pwd.js');
+const lsCommand = require('./ls.js')
 
 process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
     cmd = data.toString().trim();
-    if(cmd === 'pwd'){
-        process.stdout.write(__dirname)
+    if(cmd === 'pwd'){ 
+        pwdCommand();
     }
-    process.stdout.write('\n prompt > ' )
+    else if (cmd === 'ls') { 
+        lsCommand();
+    }
+
+    
 });
